@@ -74,4 +74,12 @@ public class MainActivity extends AppCompatActivity implements ContactsFragment.
         getSupportFragmentManager().popBackStack();
         contactsFragment.updateContactList();
     }
+
+    @Override
+    public void onAddEditCompleted(Uri contactUri) {
+        // removes top of back stack
+        getSupportFragmentManager().popBackStack();
+        contactsFragment.updateContactList();
+
+    }
 }
