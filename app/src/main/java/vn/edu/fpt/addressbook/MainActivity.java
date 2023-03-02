@@ -61,4 +61,17 @@ public class MainActivity extends AppCompatActivity implements ContactsFragment.
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+    @Override
+    public void onEditContact(Uri contactUri) {
+        if (findViewById(R.id.fragmentContainer) != null) {
+            displayAddEditFragment(R.id.fragmentContainer, contactUri);
+        }
+    }
+
+    @Override
+    public void onContactDeleted() {
+        getSupportFragmentManager().popBackStack();
+        contactsFragment.updateContactList();
+    }
 }
